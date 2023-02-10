@@ -1,8 +1,8 @@
 
 
-deployrepo = "https://github.com/krishnamaram2025/utils.git"
-deployreponame = "utils"
-Dir = "${deployreponame}/aws"
+deployRepo = "https://github.com/krishnamaram2025/utils.git"
+deployRepoName = "utils"
+Dir = "${deployreponame}/cloud_operations/aws"
 pipeline {
 
 agent any
@@ -14,13 +14,15 @@ environment {
 
 parameters {
     string(name: "Task", description: "task", defaultValue: "create")
-    string(name: "Branch_Name", description: "branch", defaultValue: "master")
+    string(name: "BRANCH_NAME", description: "branch", defaultValue: "master")
 }
 
 stages {
 stage('Cloning Git') {
 steps {
-git branch: 'master', url: 'https://github.com/krishnamaram2025/utils.git'
+   script{
+gitClone()
+   }
 }
 }
 stage('running script') {
@@ -32,11 +34,16 @@ sh """
  export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
  sudo yum install python3-pip -y
  sudo pip3 install -r requirements.txt
- cd aws && sudo python3 iam.py 
+ cd ${Dir} && sudo python3 iam.py 
 """
 }
 }
 }
+   
+# Clone Utils repo
+def gitClone() {
+   dir(deployRepoName) {
+      git branch: params.BRANCH_NAME', url: deployRepo
 }
 
 }
