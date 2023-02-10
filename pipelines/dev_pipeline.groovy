@@ -32,7 +32,7 @@ sh """
  export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
  sudo yum install python3-pip -y
  sudo pip3 install -r requirements.txt
- cd ${Dir} && sudo python3 iam.py 
+ cd aws && sudo python3 iam.py 
 """
 }
 }
