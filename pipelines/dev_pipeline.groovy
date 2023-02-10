@@ -2,7 +2,7 @@
 
 deployRepo = "https://github.com/krishnamaram2025/utils.git"
 deployRepoName = "utils"
-Dir = "${deployreponame}/cloud_operations/aws"
+Dir = "${deployRepoName}/cloud_operations/aws"
 pipeline {
 agent any
    
