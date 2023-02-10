@@ -7,8 +7,8 @@ pipeline {
 agent any
    
 environment {
-    AWS_ACCESS_KEY_ID = credentials("access_key_id")
-    AWS_SECRET_ACCESS_KEY = credentials("secret_key_id")
+    AWS_ACCESS_KEY_ID = credentials('access_key_id')
+    AWS_SECRET_ACCESS_KEY = credentials('secret_key_id')
     }
 
 parameters {
@@ -32,8 +32,8 @@ script {
 sh """
  whoami
  echo ${AWS_ACCESS_KEY_ID}
- export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
- export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+ sudo export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+ sudo export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
  sudo yum install python3-pip -y
  sudo pip3 install -r requirements.txt
  cd ${Dir} && sudo python3 iam.py 
