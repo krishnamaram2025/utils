@@ -1,8 +1,8 @@
-
-
+import groovy.json.JsonSlurpeClassic
 deployRepo = "https://github.com/krishnamaram2025/utils.git"
 deployRepoName = "utils"
 Dir = "${deployRepoName}/cloud_operations/aws"
+
 pipeline {
 agent any
    
