@@ -6,8 +6,11 @@ from datetime import date
 # accesskey = str(sys.argv[1])
 # secretkey = str(sys.argv[2])
 username = 'admin'
+accesskey = os.environ['AWS_ACCESS_KEY_ID']
+secretkey =  os.environ['AWS_SECRET_ACCESS_KEY']
+print("accesskey", accesskey)
 
-iam_client = boto3.client('iam', region_name = 'us-east-1', aws_access_key_id = os.environ['AWS_ACCESS_KEY_ID'], aws_secret_access_key = os.environ['AWS_SECRET_ACCESS_KEY'])
+iam_client = boto3.client('iam', region_name = 'us-east-1', aws_access_key_id = accesskey, aws_secret_access_key = secretkey)
 keys = iam_client.list_access_keys(UserName=username)
 print("keys", keys)
 for key in keys['AccessKeyMetadata']:
