@@ -16,4 +16,4 @@ for key in keys['AccessKeyMetadata']:
     accesskeybirthdate = key['CreateDate'].date()
     todaydate = date.today()
     age = todaydate - accesskeybirthdate
-    print("age", age)
+    print("age", age.days)
