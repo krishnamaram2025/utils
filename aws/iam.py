@@ -10,7 +10,7 @@ username = 'admin'
 iam_client = boto3.client('iam', region_name = 'us-east-1', aws_access_key_id = accesskey, aws_secret_access_key = secretkey)
 keys = iam_client.list_access_keys(UserName=username)
 print("keys", keys)
-for key in keys['AccessKeyMetadta']:
+for key in keys['AccessKeyMetadata']:
   if key['AccessKeyId'] == accesskey:
     print("key", key)
     accesskeybirthdate = key['CreateDate'].date()
