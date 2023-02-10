@@ -40,7 +40,7 @@ sh """
 }
 }
    
-# Clone Utils repo
+// Clone Utils repo
 def gitClone() {
    dir(deployRepoName) {
       git branch: params.BRANCH_NAME', url: deployRepo
