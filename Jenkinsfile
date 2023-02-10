@@ -11,7 +11,7 @@ parameters {
 stages {
 stage('Cloning Git') {
 steps {
-git branch: 'main', url: 'https://github.com/krishnamaram2025/utils.git'
+git branch: 'master', url: 'https://github.com/krishnamaram2025/utils.git'
 }
 }
 stage('running script') {
