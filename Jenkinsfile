@@ -21,8 +21,8 @@ sh """
  whoami
  echo '${params.accesskey}' 
  echo '${params.secretkey}'
- yum install python3-pip -y
- pip3 install -r requirements.txt
+ sudo yum install python3-pip -y
+ sudo pip3 install -r requirements.txt
  cd aws && sudo python3 vpc.py '${params.accesskey}' '${params.secretkey}' 
 """
 }
