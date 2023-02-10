@@ -4,7 +4,6 @@ deployRepo = "https://github.com/krishnamaram2025/utils.git"
 deployRepoName = "utils"
 Dir = "${deployreponame}/cloud_operations/aws"
 pipeline {
-
 agent any
    
 environment {
@@ -18,6 +17,7 @@ parameters {
 }
 
 stages {
+   
 stage('Cloning Git') {
 steps {
    script{
@@ -25,6 +25,7 @@ gitClone()
    }
 }
 }
+   
 stage('running script') {
 steps{
 script {
@@ -39,6 +40,7 @@ sh """
 }
 }
 }
+} 
    
 // Clone Utils repo
 def gitClone() {
