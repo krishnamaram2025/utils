@@ -1,4 +1,4 @@
-import groovy.json.JsonSlurpeClassic
+import groovy.json.JsonSlurperClassic
 deployRepo = "https://github.com/krishnamaram2025/utils.git"
 deployRepoName = "utils"
 Dir = "${deployRepoName}/cloud_operations/aws"
